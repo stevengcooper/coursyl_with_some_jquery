@@ -34,9 +34,12 @@ function disableSubmitButton() {
 //   last_section.style.display = "block";
 // }
 
-function hideRow(arrayId) {
+function deleteRow(arrayId) {
   var row = document.getElementsByClassName("btn-danger")[arrayId].parentNode.parentNode;
   row.style.display = "none";
+  var checkbox = document.getElementsByClassName("destroy")[arrayId];
+  checkbox.value = true;
+
 }
 
 

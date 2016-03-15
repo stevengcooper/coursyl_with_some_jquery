@@ -14,3 +14,43 @@
 //= require jquery_ujs
 //= require d3
 //= require_tree .
+
+
+function disableSubmitButton() {
+  var submitButton = document.getElementById("save");
+  submitButton.disabled = true;
+}
+
+// function hideLastGrade () {
+//   var associations = document.getElementById("associations");
+//   var last_section = associations.lastElementChild;
+//   if (clicked === false) {last_section.style.display = "none"};
+// }
+//
+// function showLastGrade () {
+//   var associations = document.getElementById("associations");
+//   var last_section = associations.lastElementChild;
+//   var show = true;
+//   last_section.style.display = "block";
+// }
+
+function hideRow(arrayId) {
+  var row = document.getElementsByClassName("btn-danger")[arrayId].parentNode.parentNode;
+  row.style.display = "none";
+}
+
+
+function displayGrade(displayType) {
+  var associations = document.getElementById("associations");
+  var last_section = associations.lastElementChild;
+  if (displayType) {
+    last_section.style.display = "block";
+    var clicked = true
+  } else {
+    last_section.style.display = "none";
+  }
+}
+
+// function hideRow(btn-danger) {
+//   btn-danger.parent.display = "none";
+// }

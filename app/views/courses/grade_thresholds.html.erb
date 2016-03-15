@@ -1,5 +1,4 @@
 <p><%= link_to back_arrow + "Back to #{@course.code_and_name}", @course %></p>
-
 <h2><%= @course.code_and_name %></h2>
 
 <%= form_for(@course) do |f| %>
@@ -19,7 +18,7 @@
     number grade which earns that letter.  For instance, a 10 point scale starts with (A, 90)
     and ends with (F, 0).  Feel free to add grades like (B+, 87).</p>
   <% i = 0 %>
-  <div class="associations">
+  <div id="associations">
     <%= f.fields_for :grade_thresholds do |ff| %>
       <div class="association container">
         <div class="row">
@@ -35,10 +34,10 @@
           </div>
           <div class="span1">
             <% if ff.object.persisted? %>
-              <%= link_to 'Delete', nil, class: "btn btn-danger delete-association" %>
+              <%= link_to 'Delete', nil, class: "btn btn-danger delete-association", onclick: "hideRow(#{i})" %>
               <%= ff.check_box :_destroy, class: "destroy", hidden: true %>
             <% else %>
-              <%= link_to 'Delete', nil, class: "btn btn-danger flush-association" %>
+              <%= link_to 'Delete', nil, class: "btn btn-danger flush-association", onclick: "hideRow(#{i})" %>
             <% end %>
           </div>
         </div>
@@ -46,10 +45,12 @@
       <% i += 1 %>
     <% end %>
   </div>
-  <%= link_to '<i class="fa fa-plus"></i> Add Grade Threshold'.html_safe, nil, class: "btn btn-success new-association", "data-index" => i %>
 
+  <%= link_to '<i class="fa fa-plus"></i> Add Grade Threshold'.html_safe, "javascript: void(0)", class: "btn btn-success new-association", "data-index" => i, onclick: "displayGrade(true)" %>
 
   <div class="actions">
-    <%= f.submit class: "btn" %>
+    <%= f.submit class: "btn", onclick: "disableSubmitButton();", id: "save" %>
   </div>
 <% end %>
+
+<script> displayGrade(false) </script>

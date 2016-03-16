@@ -50,4 +50,6 @@ function hideLastRow() {
   displayGrade(false);
 }
 
-$(hideLastRow);
+function calendar() {
+  var cal1x = new CalendarPopup("testdiv1");
+}

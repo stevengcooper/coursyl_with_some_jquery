@@ -1,5 +1,5 @@
 <% if assignment.status(current_user).name != "Future" %>
-  <%= link_to '<i class="fa fa-calendar" title="Edit Assignment"></i>'.html_safe, assignment_path(assignment) %>
+  <%= link_to '<i class="fa fa-calendar" title="Edit Assignment"></i>'.html_safe, "javascript: void(0)" %>
   <%= link_to '<i class="fa fa-edit" title="Take Assignment"></i>'.html_safe, assignment_path(assignment) %>
 <% else %>
   <i class="fa fa-edit muted" title="Take Assignment"></i>

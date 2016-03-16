@@ -34,10 +34,10 @@
           </div>
           <div class="span1">
             <% if ff.object.persisted? %>
-              <%= link_to 'Delete', "javascript: void(0)", class: "btn btn-danger delete-association", onclick: "deleteRow(#{i})" %>
+              <%= link_to 'Delete', "javascript: void(0)", class: "btn btn-danger delete-association", onclick: "deleteRow();" %>
               <%= ff.check_box :_destroy, class: "destroy", hidden: true %>
             <% else %>
-              <%= link_to 'Delete', "javascript: void(0)", class: "btn btn-danger flush-association", onclick: "hideRow(#{i})" %>
+              <%= link_to 'Delete', "javascript: void(0)", class: "btn btn-danger flush-association", onclick: "deleteRow();" %>
             <% end %>
           </div>
         </div>
@@ -46,11 +46,9 @@
     <% end %>
   </div>
 
-  <%= link_to '<i class="fa fa-plus"></i> Add Grade Threshold'.html_safe, "javascript: void(0)", class: "btn btn-success new-association", "data-index" => i, onclick: "displayGrade(true)" %>
+  <%= link_to '<i class="fa fa-plus"></i> Add Grade Threshold'.html_safe, "javascript: void(0)", {class: "btn btn-success new-association", "data-index" => i, onclick: "displayGrade(true)"} %>
 
   <div class="actions">
-    <%= f.submit class: "btn", id: "save", onsubmit: "disableSubmitButton();" %>
+    <%= f.submit class: "btn", id: "save" %>
   </div>
 <% end %>
-
-<script> displayGrade(false) </script>

@@ -49,7 +49,7 @@
   <%= link_to '<i class="fa fa-plus"></i> Add Grade Threshold'.html_safe, "javascript: void(0)", class: "btn btn-success new-association", "data-index" => i, onclick: "displayGrade(true)" %>
 
   <div class="actions">
-    <%= f.submit class: "btn", onclick: "disableSubmitButton();", id: "save" %>
+    <%= f.submit class: "btn", id: "save", onsubmit: "disableSubmitButton();" %>
   </div>
 <% end %>
 

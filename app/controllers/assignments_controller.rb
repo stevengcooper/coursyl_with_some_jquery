@@ -6,6 +6,7 @@ class AssignmentsController < ApplicationController
 
   # GET
   def show
+    
   end
 
   # GET

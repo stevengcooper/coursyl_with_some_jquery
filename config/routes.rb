@@ -47,6 +47,7 @@ Courses::Application.routes.draw do
   end
   resources :assignments do
     member do
+      post 'date_change'
       post 'turn_in'
       get 'grade'
       post 'grade'
